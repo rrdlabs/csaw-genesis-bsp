@@ -1,0 +1,33 @@
+# CsAW Genesis BSP — ESP32-S3-TOUCH-AMOLED-1.8 Rev 1 defaults
+# Reconciled to the verified build: the parent firmware's sdkconfig.defaults
+# contained a stale FLASHMODE_QIO=y while the generated flash_args used DIO.
+# This BSP states the effective, verified value explicitly.
+
+CONFIG_IDF_TARGET="esp32s3"
+
+# 16 MB flash, DIO @ 80 MHz (verified in build/flash_args of firmware 1.1.0)
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHMODE="dio"
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# 240 MHz, 8 MB octal PSRAM @ 80 MHz
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=2048
+CONFIG_SPIRAM_MALLOC_RESERVE_INTERNAL=98304
+CONFIG_SPIRAM_MEMTEST=n
+
+# Board partition layout (ota_0/ota_1 2 MB, SPIFFS 12 MB, coredump)
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# Long session filenames on the SPIFFS partition
+CONFIG_SPIFFS_OBJ_NAME_LEN=64
+
+# USB Serial/JTAG diagnostics console (Rev 1 board wiring)
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+
+CONFIG_LWIP_LOCAL_HOSTNAME="csaw"
