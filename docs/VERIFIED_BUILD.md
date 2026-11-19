@@ -28,6 +28,17 @@ source /home/d31337m3/devenv/env-6.1.sh
 idf.py build && idf.py merge-bin
 ```
 
+## Publication
+
+```bash
+$ gh repo create rrdlabs/csaw-genesis-bsp --public --source=. --remote=origin --push
+https://github.com/rrdlabs/csaw-genesis-bsp
+To https://github.com/rrdlabs/csaw-genesis-bsp.git
+ * [new branch]      HEAD -> master
+```
+(exit 0; initial commit `69b08c6`, branch `master`, public — matching the main
+firmware repository's visibility.)
+
 ## Physical hardware: attempted and FAILED
 
 A device appeared briefly at `/dev/ttyACM0` (Espressif USB JTAG/serial debug

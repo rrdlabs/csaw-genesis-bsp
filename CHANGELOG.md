@@ -3,6 +3,24 @@
 Every change bumps [VERSION.md](VERSION.md) and appends an entry with date,
 version, summary, files touched and verification result.
 
+## [0.1.2] - 2026-11-18
+
+### Summary
+
+Published the BSP to GitHub as a public repository (matching the visibility of
+the main firmware repository) and recorded the exact creation/push command and
+its result. The published state carries the explicit hardware FAIL caveat.
+
+### Files touched
+
+- `CHANGELOG.md`, `VERSION.md`, `docs/VERIFIED_BUILD.md` — publication evidence and version increment.
+
+### Verification result
+
+- `gh repo create rrdlabs/csaw-genesis-bsp --public --source=. --remote=origin --push` → exit 0, created `https://github.com/rrdlabs/csaw-genesis-bsp`, `* [new branch] HEAD -> master`.
+- Initial commit `69b08c6`; `git remote -v` → `origin https://github.com/rrdlabs/csaw-genesis-bsp.git` (fetch/push).
+- Branding zero-hit check re-run before publication → zero hits. Hardware status unchanged: **FAIL**.
+
 ## [0.1.1] - 2026-11-18
 
 ### Summary
